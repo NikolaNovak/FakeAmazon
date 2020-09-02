@@ -5,7 +5,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasket from "@material-ui/icons/ShoppingBasket";
 import "./Header.css";
 
-function Header() {
+const Header = () => {
   return (
     <nav className="header">
       <Link to="/">
@@ -52,6 +52,6 @@ function Header() {
       </div>
     </nav>
   );
-}
+};
 
 export default Header;
