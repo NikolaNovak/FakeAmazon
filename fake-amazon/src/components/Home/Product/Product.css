@@ -15,6 +15,10 @@
   margin-bottom: 15px;
 }
 
+.product__title {
+  font-weight: 600;
+}
+
 .product__rating {
   margin-top: 5px;
   display: flex;
@@ -22,7 +26,6 @@
 
 .product__price {
   margin-top: 5px;
-  color: #b12704;
 }
 
 .product > img {
