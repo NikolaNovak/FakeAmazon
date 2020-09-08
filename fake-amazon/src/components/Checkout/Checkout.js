@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useStateValue } from "../../StateProvider";
+import Subtotal from "./Subtotal/Subtotal";
 import CheckoutProduct from "./CheckoutProduct/CheckoutProduct";
 import "./Checkout.css";
 
@@ -40,6 +41,11 @@ const Checkout = () => {
           </div>
         )}
       </div>
+      {basket.length > 0 && (
+        <div className="checkout__right">
+          <Subtotal />
+        </div>
+      )}
       <div className="checkout__right"></div>
     </div>
   );

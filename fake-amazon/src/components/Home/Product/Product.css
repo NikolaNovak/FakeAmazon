@@ -40,6 +40,8 @@
   border: 1px solid;
   margin: auto;
   border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+  border-radius: 2px;
 }
 
 .product > button:hover {
