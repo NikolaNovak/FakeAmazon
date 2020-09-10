@@ -21,17 +21,8 @@ const CheckoutProduct = ({ id, title, image, price, rating }) => {
             <small>$</small>
             <strong>{price}</strong>
           </p>
-          <div className="checkoutProduct__rating">
-            {Array(rating)
-              .fill()
-              .map((_) => (
-                <span key={Math.random() * 1000} role="img" aria-label="rating stars">
-                  ⭐
-                </span>
-              ))}
-          </div>
         </div>
-        <button onClick={removeFromBasket}>Remove from basket</button>
+        <button onClick={removeFromBasket}>Remove from cart</button>
       </div>
     </div>
   );

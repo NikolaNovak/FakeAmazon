@@ -21,12 +21,10 @@
 
 .checkoutProduct__title {
   font-size: 1.05em;
-  font-weight: 600;
 }
 
-.checkoutProduct__rating {
-  margin-top: 5px;
-  display: flex;
+.checkoutProduct__price {
+  margin-top: 3px;
 }
 
 .checkoutProduct__info > button {
@@ -34,9 +32,11 @@
   border: 1px solid;
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
-  width: 140px;
+  width: 160px;
   color: #111;
   border-radius: 2px;
+  font: inherit;
+  font-size: 15px;
 }
 
 .checkoutProduct__info > button:hover {

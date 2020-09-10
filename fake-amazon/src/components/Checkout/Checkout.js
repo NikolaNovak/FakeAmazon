@@ -12,21 +12,21 @@ const Checkout = () => {
     <div className="checkout">
       <div className="checkout__left">
         <img
-          className="checkout__ad"
+          className={basket?.length === 0 ? "checkout__adEmpty" : "checkout__ad"}
           src="https://images-na.ssl-images-amazon.com/images/G/01/gift-certificates/consumer/2020/GCLP/EGCU_D_1024x180_v1_EN_20200318._CB1584039996_.jpg"
           alt=""
         />
         {basket?.length === 0 ? (
-          <div>
-            <h2>Your Shopping Basket is empty.</h2>
+          <div className="checkout__emptyCart">
+            <h2>Your Shopping Cart is empty.</h2>
             <p>
-              You have no items in your basket. Add some by clicking the "Add to basket" button
-              below an item on the home page.
+              You have no items in your cart. Add some by clicking the "Add to cart" button below an
+              item on the home page.
             </p>
           </div>
         ) : (
           <div>
-            <h2 className="checkout__title">Your Shopping Basket</h2>
+            <h2 className="checkout__title">Your Shopping Cart</h2>
 
             {basket?.map((item) => (
               <CheckoutProduct
@@ -35,7 +35,6 @@ const Checkout = () => {
                 title={item.title}
                 image={item.image}
                 price={item.price}
-                rating={item.rating}
               />
             ))}
           </div>

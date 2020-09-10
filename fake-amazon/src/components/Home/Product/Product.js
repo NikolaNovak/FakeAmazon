@@ -22,7 +22,7 @@ const Product = ({ id, title, image, price, rating }) => {
   return (
     <div key={id} className="product">
       <div className="product__info">
-        <p className="product__title">{title}</p>
+        <p>{title}</p>
         <div className="product__rating">
           {Array(rating)
             .fill()
@@ -38,7 +38,7 @@ const Product = ({ id, title, image, price, rating }) => {
         </p>
       </div>
       <img src={image} alt="" />
-      <button onClick={addToBasket}>Add to basket</button>
+      <button onClick={addToBasket}>Add to cart</button>
     </div>
   );
 };

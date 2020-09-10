@@ -34,6 +34,8 @@
   background-color: white;
   width: 98%;
   border: 1px solid rgb(175, 175, 175);
+  font: inherit;
+  padding-left: 5px;
 }
 
 .login__signInButton {
@@ -45,10 +47,12 @@
   margin-top: 10px;
   height: 30px;
   width: 100%;
+  font: inherit;
+  font-size: 15px;
 }
 
 .login__upperContainer > p {
-  font-size: 12px;
+  font-size: 13px;
   margin-top: 5px;
 }
 
@@ -59,6 +63,8 @@
   color: #111;
   height: 30px;
   width: 100%;
+  font: inherit;
+  font-size: 15px;
 }
 
 .login__lowerContainer {

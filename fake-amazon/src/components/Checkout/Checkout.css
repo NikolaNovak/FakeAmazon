@@ -5,9 +5,17 @@
   height: max-content;
 }
 
+.checkout__emptyCart > p {
+  margin-top: 10px;
+}
+
 .checkout__title {
   padding: 10px;
   border-bottom: 1px solid lightgray;
+}
+
+.checkout__adEmpty {
+  margin-bottom: 10px;
 }
 
 .checkout__ad {

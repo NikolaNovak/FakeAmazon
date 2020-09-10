@@ -15,14 +15,14 @@ const Home = () => {
       <div className="home__row">
         <Product
           id="1"
-          title="AMD Ryzen 7 3700X 8-Core, 16-Thread Unlocked Desktop Processor with Wraith Prism LED Cooler"
-          price={289.99}
+          title="AMD Ryzen 5 3600X 6-Core, 12-Thread Unlocked Desktop Processor with Wraith Spire Cooler"
+          price={214.99}
           rating={5}
-          image="https://images-na.ssl-images-amazon.com/images/I/717Di3DGIbL._AC_SL1092_.jpg"
+          image="https://images-na.ssl-images-amazon.com/images/I/616i5Il16qL._AC_SL1000_.jpg"
         />
         <Product
           id="2"
-          title="MSI Gaming GeForce RTX 2080 Super 8GB GDRR6 256-Bit HDMI/DP Nvlink Tri-Frozr Turing Architecture Overclocked Graphics Card (RTX 2080 Super Gaming X Trio)"
+          title="MSI Gaming GeForce RTX 2080 Super 8GB GDRR6 256-Bit HDMI/DP Nvlink Tri-Frozr Overclocked Graphics Card"
           price={899.99}
           rating={4}
           image="https://images-na.ssl-images-amazon.com/images/I/81WhZNCowVL._AC_SL1500_.jpg"

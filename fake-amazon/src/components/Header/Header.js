@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import SearchIcon from "@material-ui/icons/Search";
-import ShoppingBasket from "@material-ui/icons/ShoppingBasket";
+import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import "./Header.css";
 import { useStateValue } from "../../StateProvider";
+import { auth } from "../../firebase";
 
 const Header = () => {
-  const { basket } = useStateValue()[0];
+  const { basket, user } = useStateValue()[0];
 
   return (
     <nav className="header">
@@ -25,10 +26,10 @@ const Header = () => {
       </div>
 
       <div className="header__nav">
-        <Link to="/login" className="header__link">
-          <div className="header__option">
-            <span className="header__optionLineOne">Hello, Sign in</span>
-            <span className="header__optionLineTwo">Account & Lists</span>
+        <Link to={!user ? "/login" : "/"} className="header__link">
+          <div onClick={user ? () => auth.signOut() : null} className="header__option">
+            <span className="header__optionLineOne">Hello, {user && user.email}</span>
+            <span className="header__optionLineTwo">{user ? "Sign Out" : "Sign In"}</span>
           </div>
         </Link>
 
@@ -48,7 +49,7 @@ const Header = () => {
 
         <Link to="/checkout" className="header__link">
           <div className="header__optionBasket">
-            <ShoppingBasket />
+            <ShoppingCart />
             <span className="header__optionLineTwo header__basketCount">{basket?.length}</span>
           </div>
         </Link>
