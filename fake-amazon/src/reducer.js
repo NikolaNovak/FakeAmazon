@@ -10,7 +10,15 @@ const reducer = (state, action) => {
     case "SET_USER":
       return { ...state, user: action.user };
     case "ADD_TO_BASKET":
-      return { ...state, basket: [...state.basket, action.item] };
+      let existingItem = false;
+      console.log();
+      state.basket.forEach((item) => {
+        if (!existingItem && item.id === action.item.id) {
+          existingItem = true;
+        }
+      });
+      if (existingItem) return { ...state };
+      else return { ...state, basket: [...state.basket, action.item] };
     case "REMOVE_FROM_BASKET":
       return { ...state, basket: state.basket.filter((item) => item.id !== action.id) };
     default:
