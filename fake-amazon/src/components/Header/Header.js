@@ -47,7 +47,7 @@ const Header = () => {
           </div>
         </Link>
 
-        <Link to="/checkout" className="header__link">
+        <Link to="/cart" className="header__link">
           <div className="header__optionCart">
             <ShoppingCart />
             <span className="header__optionLineTwo header__cartCount">{cart?.length}</span>

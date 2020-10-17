@@ -1,28 +1,31 @@
 .checkout {
-  display: flex;
-  padding: 20px;
   background-color: white;
-  height: max-content;
 }
 
-.checkout__emptyCart > p {
-  margin-top: 10px;
-}
-
-.checkout__title {
+.checkout__container > h1 {
+  text-align: center;
   padding: 10px;
+  font-weight: 400;
+  background-color: rgb(234, 237, 237);
   border-bottom: 1px solid lightgray;
 }
 
-.checkout__adEmpty {
-  margin-bottom: 10px;
-  width: 100%;
+.checkout__container > h1 a {
+  text-decoration: none;
 }
 
-.checkout__ad {
-  height: 142px;
-  margin: auto;
-  width: 100%;
-  object-fit: contain;
-  margin-bottom: 10px;
+.checkout__section {
+  display: flex;
+  padding: 20px;
+  margin: 0 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.checkout__title {
+  flex: 0.2;
+}
+
+.checkout__address,
+.checkout__items {
+  flex: 0.8;
 }
