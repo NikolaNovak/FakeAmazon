@@ -8,7 +8,7 @@ import { useStateValue } from "../../StateProvider";
 import { auth } from "../../firebase";
 
 const Header = () => {
-  const { basket, user } = useStateValue()[0];
+  const { cart, user } = useStateValue()[0];
 
   return (
     <nav className="header">
@@ -48,9 +48,9 @@ const Header = () => {
         </Link>
 
         <Link to="/checkout" className="header__link">
-          <div className="header__optionBasket">
+          <div className="header__optionCart">
             <ShoppingCart />
-            <span className="header__optionLineTwo header__basketCount">{basket?.length}</span>
+            <span className="header__optionLineTwo header__cartCount">{cart?.length}</span>
           </div>
         </Link>
       </div>

@@ -6,17 +6,17 @@ import CheckoutProduct from "./CheckoutProduct/CheckoutProduct";
 import "./Checkout.css";
 
 const Checkout = () => {
-  const { basket } = useStateValue()[0];
+  const { cart } = useStateValue()[0];
 
   return (
     <div className="checkout">
       <div className="checkout__left">
         <img
-          className={basket?.length === 0 ? "checkout__adEmpty" : "checkout__ad"}
+          className={cart?.length === 0 ? "checkout__adEmpty" : "checkout__ad"}
           src="https://images-na.ssl-images-amazon.com/images/G/01/gift-certificates/consumer/2020/GCLP/EGCU_D_1024x180_v1_EN_20200318._CB1584039996_.jpg"
           alt=""
         />
-        {basket?.length === 0 ? (
+        {cart?.length === 0 ? (
           <div className="checkout__emptyCart">
             <h2>Your Shopping Cart is empty.</h2>
             <p>
@@ -28,7 +28,7 @@ const Checkout = () => {
           <div>
             <h2 className="checkout__title">Your Shopping Cart</h2>
 
-            {basket?.map((item) => (
+            {cart?.map((item) => (
               <CheckoutProduct
                 key={item.id}
                 id={item.id}
@@ -40,7 +40,7 @@ const Checkout = () => {
           </div>
         )}
       </div>
-      {basket.length > 0 && (
+      {cart.length > 0 && (
         <div className="checkout__right">
           <Subtotal />
         </div>

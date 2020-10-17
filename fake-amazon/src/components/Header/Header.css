@@ -60,12 +60,12 @@
   font-weight: 800;
 }
 
-.header__optionBasket {
+.header__optionCart {
   display: flex;
   align-items: center;
   margin-left: 5px;
 }
 
-.header__basketCount {
+.header__cartCount {
   margin-right: 15px;
 }

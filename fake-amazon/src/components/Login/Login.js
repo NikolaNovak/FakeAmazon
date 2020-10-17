@@ -56,7 +56,7 @@ const Login = () => {
         </form>
 
         <p>
-          By continuing, you agree to Amazon's{" "}
+          By continuing, you agree to Fake Amazon's{" "}
           <a href="https://www.amazon.com/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&nodeId=508088">
             Condition of Use
           </a>{" "}
@@ -69,10 +69,10 @@ const Login = () => {
       </div>
       <div className="login__lowerContainer">
         <h5 className="login__orText">
-          <span>New to Amazon?</span>
+          <span>New to Fake Amazon?</span>
         </h5>
         <button onClick={register} className="login__registerButton">
-          Create your Amazon Account
+          Create your Fake Amazon Account
         </button>
       </div>
     </div>

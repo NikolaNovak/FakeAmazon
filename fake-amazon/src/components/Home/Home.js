@@ -40,7 +40,7 @@ const Home = () => {
         <Product
           id="4"
           title="ASUS VivoBook 15 Thin and Light Laptop, 15.6” FHD Display, Intel i3-1005G1 CPU, 8GB RAM, 128GB SSD, Backlit Keyboard"
-          price={449.0}
+          price={449.99}
           rating={5}
           image="https://images-na.ssl-images-amazon.com/images/I/81fstJkUlaL._AC_SL1500_.jpg"
         />
@@ -64,7 +64,7 @@ const Home = () => {
         <Product
           id="7"
           title="Playstation 4 Pro 2TB SSHD Console with Dualshock 4 Wireless Controller Bundle, 4K HDR, Playstation Pro Enhanced with Solid State Hybrid Drive"
-          price={459.0}
+          price={459.99}
           rating={4}
           image="https://images-na.ssl-images-amazon.com/images/I/61WuIrRvfTL._AC_SL1500_.jpg"
         />
