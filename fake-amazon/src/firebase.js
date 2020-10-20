@@ -1,9 +1,7 @@
 import firebase from "firebase";
 
-import { FIREBASE_API_KEY } from "./api";
-
 const firebaseApp = firebase.initializeApp({
-  apiKey: FIREBASE_API_KEY,
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "fake-c91c5.firebaseapp.com",
   databaseURL: "https://fake-c91c5.firebaseio.com",
   projectId: "fake-c91c5",
@@ -13,6 +11,7 @@ const firebaseApp = firebase.initializeApp({
   measurementId: "G-PCPNBY05Y7",
 });
 
+const db = firebaseApp.firestore();
 const auth = firebaseApp.auth();
 
-export { auth };
+export { db, auth };

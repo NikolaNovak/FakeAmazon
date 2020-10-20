@@ -1,12 +1,62 @@
-import React from "react";
-
-import "./Checkout.css";
+import React, { useState, useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useStateValue } from "../../StateProvider";
+import { getCartTotal } from "../../reducer";
+import CurrencyFormat from "react-currency-format";
+import axios from "../../axios";
+
 import CartProduct from "../ShoppingCart/CartProduct/CartProduct";
-import { Link } from "react-router-dom";
+import "./Checkout.css";
 
 const Checkout = () => {
+  const history = useHistory();
   const [{ cart, user }, dispatch] = useStateValue();
+  const [disabled, setDisabled] = useState(true);
+  const [processing, setProcessing] = useState(false);
+  const [succeeded, setSucceeded] = useState(false);
+  const [clientSecret, setClientSecret] = useState("");
+  const [error, setError] = useState(null);
+  const stripe = useStripe();
+  const elements = useElements();
+
+  useEffect(() => {
+    const getClientSecret = async () => {
+      const response = await axios({
+        method: "post",
+        url: `/payments/create?total=${getCartTotal(cart) * 100}`,
+      });
+      setClientSecret(response.data.clientSecret);
+    };
+
+    getClientSecret();
+  }, [cart]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setProcessing(true);
+
+    const payload = await stripe
+      .confirmCardPayment(clientSecret, {
+        payment_method: { card: elements.getElement(CardElement) },
+      })
+      .then(({ paymentIntent }) => {
+        setProcessing(false);
+        setSucceeded(true);
+        setError(null);
+
+        dispatch({
+          type: "EMPTY_CART",
+        });
+
+        history.replace("/orders");
+      });
+  };
+
+  const handleChange = (e) => {
+    setDisabled(e.empty);
+    setError(e.error ? e.error.message : "");
+  };
 
   return (
     <div className="checkout">
@@ -47,7 +97,26 @@ const Checkout = () => {
           <div className="checkout__title">
             <h3>Payment Method</h3>
           </div>
-          <div className="checkout__details"></div>
+          <div className="checkout__details">
+            <form onSubmit={handleSubmit}>
+              <CardElement onChange={handleChange} />
+              <div className="payment__priceContainer">
+                <CurrencyFormat
+                  renderText={(value) => <h3>Order Total: {value}</h3>}
+                  decimalScale={2}
+                  value={getCartTotal(cart)}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  prefix={"$"}
+                />
+                <button disabled={disabled || processing || succeeded}>
+                  <span>{processing ? <p>Processing...</p> : "Buy Now"}</span>
+                </button>
+              </div>
+
+              {error && <div>{error}</div>}
+            </form>
+          </div>
         </div>
       </div>
     </div>

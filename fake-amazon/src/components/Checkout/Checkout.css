@@ -26,6 +26,7 @@
 }
 
 .checkout__address,
-.checkout__items {
+.checkout__items,
+.checkout__details {
   flex: 0.8;
 }

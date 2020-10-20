@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 
@@ -9,6 +11,8 @@ import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 import Login from "./components/Login/Login";
 import Checkout from "./components/Checkout/Checkout";
 import "./App.css";
+
+const promise = loadStripe(process.env.REACT_APP_STRIPE_API_KEY);
 
 const App = () => {
   const dispatch = useStateValue()[1];
@@ -42,7 +46,9 @@ const App = () => {
           </Route>
           <Route path="/checkout">
             <Header />
-            <Checkout />
+            <Elements stripe={promise}>
+              <Checkout />
+            </Elements>
           </Route>
           <Route path="/">
             <Header />
