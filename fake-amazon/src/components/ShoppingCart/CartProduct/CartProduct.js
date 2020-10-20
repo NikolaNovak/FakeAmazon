@@ -1,7 +1,7 @@
 import React from "react";
+import { useStateValue } from "../../../StateProvider";
 
 import "./CartProduct.css";
-import { useStateValue } from "../../../StateProvider";
 
 const CartProduct = ({ id, title, image, price, rating }) => {
   const dispatch = useStateValue()[1];

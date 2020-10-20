@@ -1,6 +1,6 @@
 import React from "react";
-
 import { useStateValue } from "../../StateProvider";
+
 import Subtotal from "./Subtotal/Subtotal";
 import CartProduct from "./CartProduct/CartProduct";
 import "./ShoppingCart.css";

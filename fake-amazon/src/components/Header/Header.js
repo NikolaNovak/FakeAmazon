@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useStateValue } from "../../StateProvider";
+import { auth } from "../../firebase";
 
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import "./Header.css";
-import { useStateValue } from "../../StateProvider";
-import { auth } from "../../firebase";
 
 const Header = () => {
   const { cart, user } = useStateValue()[0];

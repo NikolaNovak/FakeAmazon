@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useStateValue } from "./StateProvider";
+import { auth } from "./firebase";
 
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 import Login from "./components/Login/Login";
 import Checkout from "./components/Checkout/Checkout";
-import { useStateValue } from "./StateProvider";
-import { auth } from "./firebase";
 import "./App.css";
 
 const App = () => {
@@ -33,12 +33,12 @@ const App = () => {
     <Router>
       <div className="app">
         <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
           <Route path="/cart">
             <Header />
             <ShoppingCart />
-          </Route>
-          <Route path="/login">
-            <Login />
           </Route>
           <Route path="/checkout">
             <Header />
