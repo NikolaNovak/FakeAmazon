@@ -9,6 +9,7 @@ import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 import Login from "./components/Login/Login";
+import Orders from "./components/Orders/Orders";
 import Checkout from "./components/Checkout/Checkout";
 import "./App.css";
 
@@ -39,6 +40,10 @@ const App = () => {
         <Switch>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/orders">
+            <Header />
+            <Orders />
           </Route>
           <Route path="/cart">
             <Header />

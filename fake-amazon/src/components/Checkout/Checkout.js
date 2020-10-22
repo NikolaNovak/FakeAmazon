@@ -5,6 +5,7 @@ import { useStateValue } from "../../StateProvider";
 import { getCartTotal } from "../../reducer";
 import CurrencyFormat from "react-currency-format";
 import axios from "../../axios";
+import { db } from "../../firebase";
 
 import CartProduct from "../ShoppingCart/CartProduct/CartProduct";
 import "./Checkout.css";
@@ -21,15 +22,19 @@ const Checkout = () => {
   const elements = useElements();
 
   useEffect(() => {
-    const getClientSecret = async () => {
-      const response = await axios({
-        method: "post",
-        url: `/payments/create?total=${getCartTotal(cart) * 100}`,
-      });
-      setClientSecret(response.data.clientSecret);
-    };
+    const total = getCartTotal(cart);
 
-    getClientSecret();
+    if (total !== 0) {
+      const getClientSecret = async () => {
+        const response = await axios({
+          method: "post",
+          url: `/payments/create?total=${total * 100}`,
+        });
+        setClientSecret(response.data.clientSecret);
+      };
+
+      getClientSecret();
+    }
   }, [cart]);
 
   const handleSubmit = async (e) => {
@@ -41,9 +46,15 @@ const Checkout = () => {
         payment_method: { card: elements.getElement(CardElement) },
       })
       .then(({ paymentIntent }) => {
-        setProcessing(false);
+        db.collection("users")
+          .doc(user?.uid)
+          .collection("orders")
+          .doc(paymentIntent.id)
+          .set({ cart: cart, amount: paymentIntent.amount, created: paymentIntent.created });
+
         setSucceeded(true);
         setError(null);
+        setProcessing(false);
 
         dispatch({
           type: "EMPTY_CART",
