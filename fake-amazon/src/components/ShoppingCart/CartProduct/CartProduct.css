@@ -4,7 +4,15 @@
   padding-left: 10px;
 }
 
-.cartProduct:not(:last-child) {
+.cartProduct:first-of-type {
+  margin: 0;
+}
+
+.cartProduct:last-of-type {
+  margin-bottom: 0;
+}
+
+.cartProduct:not(:last-of-type) {
   border-bottom: 1px solid lightgray;
   padding-bottom: 10px;
 }

@@ -41,7 +41,7 @@ const Checkout = () => {
     e.preventDefault();
     setProcessing(true);
 
-    const payload = await stripe
+    await stripe
       .confirmCardPayment(clientSecret, {
         payment_method: { card: elements.getElement(CardElement) },
       })
@@ -71,65 +71,71 @@ const Checkout = () => {
 
   return (
     <div className="checkout">
-      <div className="checkout__container">
+      {!user && (
         <h1>
-          Checkout (<Link to="/cart">{cart?.length} items</Link>)
+          Please <Link to="/login">Sign In</Link> to complete your order.
         </h1>
-
-        <div className="checkout__section">
-          <div className="checkout__title">
-            <h3>Delivery Address</h3>
-          </div>
-          <div className="checkout__address">
-            <p>Email: {user?.email}</p>
-            <p>Address: 123 React Lane</p>
-            <p>City: Reactown, JSX</p>
-          </div>
-        </div>
-
-        <div className="checkout__section">
-          <div className="checkout__title">
-            <h3>Review Items</h3>
-          </div>
-          <div className="checkout__items">
-            {cart?.map((item) => (
-              <CartProduct
-                key={item.id}
-                id={item.id}
-                title={item.title}
-                image={item.image}
-                price={item.price}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className="checkout__section">
-          <div className="checkout__title">
-            <h3>Payment Method</h3>
-          </div>
-          <div className="checkout__details">
-            <form onSubmit={handleSubmit}>
-              <CardElement onChange={handleChange} />
-              <div className="payment__priceContainer">
-                <CurrencyFormat
-                  renderText={(value) => <h3>Order Total: {value}</h3>}
-                  decimalScale={2}
-                  value={getCartTotal(cart)}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={"$"}
-                />
-                <button disabled={disabled || processing || succeeded}>
-                  <span>{processing ? <p>Processing...</p> : "Buy Now"}</span>
-                </button>
+      )}
+      {user && (
+        <div className="checkout__userSignedIn">
+          <div className="checkout__container">
+            <h2>Checkout</h2>
+            <div className="checkout__section">
+              <div className="checkout__title">
+                <h3>Delivery Address</h3>
               </div>
+              <div className="checkout__address">
+                <p>Email: {user?.email}</p>
+                <p>Address: 123 React Lane</p>
+                <p>City: Reactown, JSX</p>
+              </div>
+            </div>
 
-              {error && <div>{error}</div>}
-            </form>
+            <div className="checkout__section">
+              <div className="checkout__title">
+                <h3>Review Items</h3>
+              </div>
+              <div className="checkout__items">
+                {cart?.map((item) => (
+                  <CartProduct
+                    key={item.id}
+                    id={item.id}
+                    title={item.title}
+                    image={item.image}
+                    price={item.price}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="checkout__section">
+              <div className="checkout__title">
+                <h3>Payment Method</h3>
+              </div>
+              <div className="checkout__details">
+                <form onSubmit={handleSubmit}>
+                  <CardElement onChange={handleChange} />
+                  <div className="checkout__priceContainer">
+                    <CurrencyFormat
+                      renderText={(value) => <h3>Order Total: {value}</h3>}
+                      decimalScale={2}
+                      value={getCartTotal(cart)}
+                      displayType={"text"}
+                      thousandSeparator={true}
+                      prefix={"$"}
+                    />
+                    <button disabled={disabled || processing || succeeded}>
+                      <span>{processing ? <p>Processing...</p> : "Buy Now"}</span>
+                    </button>
+                  </div>
+
+                  {error && <div>{error}</div>}
+                </form>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

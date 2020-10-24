@@ -1,24 +1,40 @@
-.checkout {
-  background-color: white;
-}
-
-.checkout__container > h1 {
+.checkout > h1 {
   text-align: center;
-  padding: 10px;
+  margin-top: 20px;
   font-weight: 400;
-  background-color: rgb(234, 237, 237);
-  border-bottom: 1px solid lightgray;
 }
 
-.checkout__container > h1 a {
+.checkout > h1 a {
+  color: #d19705;
   text-decoration: none;
+}
+
+.checkout__userSignedIn {
+  background-color: white;
+  max-width: 1500px;
+  margin: auto;
+}
+
+.checkout__container {
+  border: 1px solid lightgray;
+}
+
+.checkout__container > h2 {
+  margin: 20px 20px 0 20px;
+  padding-bottom: 10px;
+  text-align: center;
+  border-bottom: 1px solid lightgray;
 }
 
 .checkout__section {
   display: flex;
   padding: 20px;
-  margin: 0 20px;
+  margin: 0 40px;
   border-bottom: 1px solid lightgray;
+}
+
+.checkout__section:last-of-type {
+  border-bottom: none;
 }
 
 .checkout__title {
@@ -29,4 +45,24 @@
 .checkout__items,
 .checkout__details {
   flex: 0.8;
+}
+
+.checkout__details > form {
+  max-width: 400px;
+}
+
+.checkout__details > form > div > h3 {
+  padding-top: 20px;
+}
+
+.checkout__details > form > div > button {
+  background: #f0c14b;
+  border-radius: 2px;
+  width: 100%;
+  height: 30px;
+  border: 1px solid;
+  margin-top: 10px;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+  font: inherit;
 }

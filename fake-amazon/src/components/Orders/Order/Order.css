@@ -1,18 +1,39 @@
 .order {
-  padding: 40px;
+  padding: 20px 40px;
   margin: 20px 0;
   border: 1px solid lightgray;
   background-color: white;
   position: relative;
 }
 
+.order:first-of-type {
+  margin: 10px 0;
+}
+
 .order__id {
   position: absolute;
-  top: 40px;
-  right: 20px;
+  top: 20px;
+  right: 40px;
+  color: gray;
 }
 
 .order__id {
   font-weight: 500;
   text-align: right;
+}
+
+.order__upperSection {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.order__middleSection {
+  width: 90%;
+}
+
+.order__lowerSection {
+  border-top: 1px solid lightgray;
+  padding-top: 10px;
+  margin-top: 10px;
 }
