@@ -2,8 +2,8 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { useStateValue } from "../../../StateProvider";
 import { getCartTotal } from "../../../reducer";
-import CurrencyFormat from "react-currency-format";
 
+import CurrencyFormat from "react-currency-format";
 import "./Subtotal.css";
 
 const Subtotal = () => {

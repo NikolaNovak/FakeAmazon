@@ -3,10 +3,10 @@ import { Link, useHistory } from "react-router-dom";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useStateValue } from "../../StateProvider";
 import { getCartTotal } from "../../reducer";
-import CurrencyFormat from "react-currency-format";
 import axios from "../../axios";
 import { db } from "../../firebase";
 
+import CurrencyFormat from "react-currency-format";
 import CartProduct from "../ShoppingCart/CartProduct/CartProduct";
 import "./Checkout.css";
 
