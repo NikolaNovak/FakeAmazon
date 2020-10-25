@@ -1,5 +1,12 @@
 # FakeAmazon
 
-A fake Amazon app which lets users add items to their cart, register, sign-in & sign-out.
+A fake Amazon app which lets users:
 
-Link: https://fake-c91c5.web.app/
+- Add items to their cart
+- Buy the items from their cart (via Stripe)
+- Check their previous orders (via Firestore)
+- Register, Sign-in & Sign-out (via Firebase Auth)
+
+Hosting, authentication, database & cloud functions achieved with Firebase.
+
+Link to live app: https://fake-c91c5.web.app/
