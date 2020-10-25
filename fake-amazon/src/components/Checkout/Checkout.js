@@ -115,6 +115,10 @@ const Checkout = () => {
               <div className="checkout__details">
                 <form onSubmit={handleSubmit}>
                   <CardElement onChange={handleChange} />
+                  <p className="checkout__testPayment">
+                    Note: To test the payment functionality just start typing "424242..." until all
+                    the card details are filled.
+                  </p>
                   <div className="checkout__priceContainer">
                     <CurrencyFormat
                       renderText={(value) => <h3>Order Total: {value}</h3>}

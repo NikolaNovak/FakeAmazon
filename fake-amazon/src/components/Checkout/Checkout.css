@@ -51,6 +51,12 @@
   max-width: 400px;
 }
 
+.checkout__testPayment {
+  margin-top: 10px;
+  color: #a7a7a7;
+  font-size: 15px;
+}
+
 .checkout__details > form > div > h3 {
   padding-top: 20px;
 }
@@ -65,4 +71,9 @@
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
   font: inherit;
+}
+
+.checkout__details > form > div > button:disabled {
+  background: lightgray;
+  cursor: not-allowed;
 }
