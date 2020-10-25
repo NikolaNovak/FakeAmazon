@@ -1,6 +1,6 @@
-# FakeAmazon
+# Fake Amazon App
 
-A fake Amazon app which lets users:
+A Fake Amazon app which allows users to:
 
 - Add items to their cart
 - Buy the items from their cart (via Stripe)
